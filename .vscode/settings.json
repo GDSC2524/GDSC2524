@@ -1,0 +1,12 @@
+{
+    "files.exclude": {
+        "**/node_modules": true,
+        "**/*.d.ts": true,
+        "**/*.js": true,
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "files.insertFinalNewline": true,
+    "editor.formatOnSave": true
+}

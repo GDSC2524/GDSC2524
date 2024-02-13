@@ -1,0 +1,15 @@
+export enum ReportFields {
+    Report_Id = 'reportId',
+    Name = 'name',
+    Email_Address = 'emailAddress',
+    Phone_Number = 'phoneNumber',
+    Report_Category = 'reportCategory',
+    Address = 'address',
+    GPS_Coordinates = 'gpsCoordinates',
+    Issue_Description = 'issueDescription',
+    Attachments = 'attachments',
+    Email = 'email',
+    SMS = 'sms',
+    Status_Of_Report = 'statusOfReport',
+    Date_Time_Of_Submission = 'dateTimeOfSubmission',
+}

@@ -1,0 +1,6 @@
+export enum EnvironmentVariableKey {
+    CL_AWS_ACCESS_KEY = 'CL_AWS_ACCESS_KEY',
+    CL_AWS_SECRET_ACCESS_KEY = 'CL_AWS_SECRET_ACCESS_KEY',
+    STAGE = 'CL_STAGE',
+    TENANT = 'CL_TENANT',
+}
