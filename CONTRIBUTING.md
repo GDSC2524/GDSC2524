@@ -1,10 +1,10 @@
 # Contributing to GDSC2524
 
-Welcome to [GDSC2524]! We're thrilled to have you here. Your contributions are essential to making this project successful.
+Welcome to GDSC2524! We're thrilled to have you here. Your contributions are essential to making this project successful.
 
 ## How to Contribute
 
-If you're interested in contributing to [Your Project Name], please follow these steps:
+If you're interested in contributing to GDSC2524, please follow these steps:
 
 1. Fork the repository on GitHub.
 2. Clone your forked repository to your local machine.
@@ -25,15 +25,15 @@ Before submitting a PR, please ensure that your code adheres to the following gu
 
 ## Reporting Bugs
 
-If you encounter any bugs or issues while using [Your Project Name], please report them by opening an issue on GitHub. Make sure to include as much detail as possible, including steps to reproduce the issue.
+If you encounter any bugs or issues while using GDSC2524, please report them by opening an issue on GitHub. Make sure to include as much detail as possible, including steps to reproduce the issue.
 
 ## Contact
 
-If you have any questions or need further assistance, feel free to reach out to us via [email/issue tracker/other contact method].
+If you have any questions or need further assistance, feel free to reach out to us via sophiengocnguyen113@gmail.com.
 
 ## License
 
-By contributing to [Your Project Name], you agree that your contributions will be licensed under the [insert license name] license. See the [LICENSE](link-to-license-file) file for more details.
+By contributing to GDSC2524, you agree that your contributions will be licensed under the [insert license name] license. See the [LICENSE](link-to-license-file) file for more details.
 
-Thank you for your interest in contributing to [Your Project Name]! We appreciate your help in making this project better for everyone.
+Thank you for your interest in contributing to GDSC2524! We appreciate your help in making this project better for everyone.
 
