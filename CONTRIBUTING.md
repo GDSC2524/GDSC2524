@@ -1,6 +1,6 @@
-# Contributing to [Your Project Name]
+# Contributing to GDSC2524
 
-Welcome to [Your Project Name]! We're thrilled to have you here. Your contributions are essential to making this project successful.
+Welcome to [GDSC2524]! We're thrilled to have you here. Your contributions are essential to making this project successful.
 
 ## How to Contribute
 
