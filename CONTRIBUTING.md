@@ -33,7 +33,7 @@ If you have any questions or need further assistance, feel free to reach out to 
 
 ## License
 
-By contributing to GDSC2524, you agree that your contributions will be licensed under the [insert license name] license. See the [LICENSE](link-to-license-file) file for more details.
+By contributing to GDSC2524, you agree that your contributions will be licensed under the Apache License. See the [LICENSE](https://github.com/GDSC2524/GDSC2524/blob/main/LICENSE) file for more details.
 
 Thank you for your interest in contributing to GDSC2524! We appreciate your help in making this project better for everyone.
 
