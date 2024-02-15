@@ -6,10 +6,10 @@ Use this section to inform users about which versions of your project are curren
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+| [1.0.0]   | :white_check_mark: |
+| [2.0.0]   | :x:                |
+| [3.0.0]   | :white_check_mark: |
+| < [3.0.0]   | :x:                |
 
 ## Reporting a Vulnerability
 
@@ -19,7 +19,7 @@ If users discover a security vulnerability in this project, please report it by 
 
 ### Expectations
 
-- **Response Time:** We aim to respond to vulnerability reports within [specify timeframe].
+- **Response Time:** We aim to respond to vulnerability reports within [24 hours].
 - **Notification:** You will receive updates on the progress of your report.
 - **Fixes:** If the vulnerability is accepted, we will work on fixing it. Once fixed, we will release patches or updates as soon as possible.
 - **Disclosure:** We will disclose the vulnerability and its fix after a reasonable period to allow users to update their installations.
