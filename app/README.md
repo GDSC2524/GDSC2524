@@ -22,7 +22,7 @@ Set the following values on the right-hand side of the equal sign (no quotes):
 1. `CL_AWS_ACCESS_KEY` should be your AWS access key.
 2. `CL_AWS_SECRET_ACCESS_KEY` should be your AWS secret access key.
 3. `CL_STAGE` should always be `dev` when running locally.
-4. `CL_TENANT` should be your name (`min`, `sophie`, `zhanping`, or `andrey`).
+4. `CL_TENANT` should be your name (`sophie` or `harry`).
 
 ### Run development server
 
@@ -58,7 +58,7 @@ For these reasons, all APIs in this project are defined with an interface, a fro
     -   `data/` - Data structures are declared in this directory.
     -   `types/` - Types are declared in this directory.
 -   `pages/` - All pages and APIs are implemented in this directory.
-    -   `api/` - All APIs are implemented in this directory. When adding APIs, please update this readme.
+    -   `api/` - All APIs are implemented in this directory.
         -   `guestbook/` - All guestbook APIs are implemented in this directory.
     -   `guestbook/` - All guestbook pages are implemented in this directory.
 -   `styles/` - All custom styles are implemented in this directory.
