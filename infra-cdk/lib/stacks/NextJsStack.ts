@@ -43,7 +43,7 @@ export class NextJsStack extends cdk.Stack {
                 distribution: {
                     customDomain: {
                         domainName: this.getDomainName(props.tenant, props.stage),
-                        hostedZone: 'cl311.org',
+                        hostedZone: 'gdsc2524.org',
                         isExternalDomain: false,
                     },
                 },
@@ -53,9 +53,9 @@ export class NextJsStack extends cdk.Stack {
 
     private getDomainName(tenant: Tenant, stage: Stage): string {
         if (stage === Stage.PROD) {
-            return 'cl311.org';
+            return 'gdsc2524.org';
         }
 
-        return `${tenant}.${stage}.cl311.org`;
+        return `${tenant}.${stage}.gdsc2524.org`;
     }
 }

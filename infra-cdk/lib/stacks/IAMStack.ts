@@ -19,8 +19,8 @@ export class IAMStack extends cdk.Stack {
     constructor(scope: Construct, id: string, props: IAMStackProps) {
         super(scope, id, props);
 
-        this.iamPolicy = new iam.Policy(this, `CL311Policy-${props.stage}-${props.tenant}`, {
-            policyName: `CL311Policy-${props.stage}-${props.tenant}`,
+        this.iamPolicy = new iam.Policy(this, `GDSC2524Policy-${props.stage}-${props.tenant}`, {
+            policyName: `GDSC2524Policy-${props.stage}-${props.tenant}`,
             statements: [
                 new iam.PolicyStatement({
                     actions: [
