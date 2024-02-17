@@ -18,7 +18,7 @@ export class DevIAMStack extends cdk.Stack {
     }
 
     private createApplicationUser(props: DevIAMStackProps) {
-        const applicationUserName = `CL311-app-${props.stage}-${props.tenant}`;
+        const applicationUserName = `GDSC2524-app-${props.stage}-${props.tenant}`;
 
         const applicationUser = new iam.User(this, applicationUserName, {
             userName: applicationUserName,
@@ -28,7 +28,7 @@ export class DevIAMStack extends cdk.Stack {
     }
 
     private createReadOnlyUser(props: DevIAMStackProps) {
-        const readOnlyUserName = `CL311-ro-${props.stage}-${props.tenant}`;
+        const readOnlyUserName = `GDSC2524-ro-${props.stage}-${props.tenant}`;
 
         const readOnlyUserInitialPassword = new secretsmanager.Secret(
             this,
