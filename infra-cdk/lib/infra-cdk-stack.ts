@@ -12,20 +12,7 @@ const WAVES: { waveId: string; stages: BaseStackConfig[] }[] = [
         stages: [
             {
                 stage: Stage.DEV,
-                tenant: Tenant.SOPHIE,
-            },
-            {
-                stage: Stage.DEV,
                 tenant: Tenant.HARRY,
-            },
-        ],
-    },
-    {
-        waveId: 'beta',
-        stages: [
-            {
-                stage: Stage.BETA,
-                tenant: Tenant.DEFAULT,
             },
         ],
     },

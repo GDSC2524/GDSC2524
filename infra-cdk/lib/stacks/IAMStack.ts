@@ -5,8 +5,7 @@ import { ENVIRONMENT } from '../core/constants';
 import { BaseStackProps } from '../core/types';
 
 export type IAMStackProps = {
-    /** DynamoDB table name to provide permissions to */
-    tableName: string;
+    /** DynamoDB report table name to provide permissions to */
     reportsTableName: string;
     /** S3 bucket name to provide permissions to */
     reportsBucketName: string;
@@ -30,8 +29,6 @@ export class IAMStack extends cdk.Stack {
                         'dynamodb:Query',
                     ],
                     resources: [
-                        `arn:aws:dynamodb:${ENVIRONMENT.region}:${ENVIRONMENT.account}:table/${props.tableName}`,
-                        `arn:aws:dynamodb:${ENVIRONMENT.region}:${ENVIRONMENT.account}:table/${props.tableName}/index/*`,
                         `arn:aws:dynamodb:${ENVIRONMENT.region}:${ENVIRONMENT.account}:table/${props.reportsTableName}`,
                         `arn:aws:dynamodb:${ENVIRONMENT.region}:${ENVIRONMENT.account}:table/${props.reportsTableName}/index/*`,
                     ],

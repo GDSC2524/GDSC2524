@@ -1,12 +1,11 @@
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { ENVIRONMENT } from '../core/constants';
-import { Stage, Tenant } from '../core/enums';
+import { Stage } from '../core/enums';
 import { BaseStackProps } from '../core/types';
 import {
     DevIAMStack,
     IAMStack,
-    MessagesTableStack,
     NextJsStack,
     ReportsTableStack,
     ReportsBucketStack,
@@ -23,15 +22,6 @@ export class ApplicationStage extends cdk.Stage {
             tenant: props.tenant,
             env: ENVIRONMENT,
         };
-
-        // DynamoDB table storing guest book messages
-        const messagesTableStack = new MessagesTableStack(
-            this,
-            `MessagesTableStack-${props.stage}-${props.tenant}`,
-            {
-                ...baseStackProps,
-            }
-        );
 
         // S3 Bucket for storing images
         const s3BucketStack = new ReportsBucketStack(
@@ -53,7 +43,6 @@ export class ApplicationStage extends cdk.Stage {
 
         // IAM policy stack to grant permissions to DynamoDB table and other AWS services
         const iamStack = new IAMStack(this, `IAMStack-${props.stage}-${props.tenant}`, {
-            tableName: messagesTableStack.getTableName(),
             reportsTableName: reportsTableStack.getTableName(),
             reportsBucketName: s3BucketStack.getBucketName(),
             ...baseStackProps,
