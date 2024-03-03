@@ -15,7 +15,9 @@ export class PipelineStack extends cdk.Stack {
         this.pipeline = new pipelines.CodePipeline(this, 'Pipeline', {
             pipelineName: 'GDSC2524-Pipeline',
             synth: new pipelines.ShellStep('Synth', {
-                input: pipelines.CodePipelineSource.gitHub('GDSC2524/GDSC2524', 'main'),
+                input: pipelines.CodePipelineSource.gitHub('GDSC2524/GDSC2524', 'main', {
+                    authentication: cdk.SecretValue.secretsManager('github-token'),
+                }),
                 commands: [
                     // Build app
                     `cd ${APP_DIRECTORY}`,
