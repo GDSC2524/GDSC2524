@@ -40,7 +40,7 @@ const Frame = styled(Box)({
 const StyledHeading = styled('span')({
     color: DARK_PRIMARY,
     fontWeight: 'bold',
-    fontSize: '3.5rem',
+    fontSize: '3.0rem',
     marginBottom: '50px',
 });
 

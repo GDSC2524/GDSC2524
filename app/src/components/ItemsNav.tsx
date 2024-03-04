@@ -28,16 +28,6 @@ export default function ItemsNav() {
                     href="/report/create"
                 />
                 <Tab value="/report" label={<BoldText>Report List</BoldText>} href="/report" />
-                <Tab
-                    value="/guestbook/create"
-                    label={<BoldText>Add Guestbook</BoldText>}
-                    href="/guestbook/create"
-                />
-                <Tab
-                    value="/guestbook"
-                    label={<BoldText>Guestbook List</BoldText>}
-                    href="/guestbook"
-                />
             </Tabs>
         </ItemsHeader>
     );
