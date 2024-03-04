@@ -26,7 +26,7 @@ export default function PageNav() {
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container>
-                <BrandLink label="CL311" href="/" />
+                <BrandLink label="GDSC2524" href="/" />
                 <ItemsNav />
             </Container>
         </Navbar>

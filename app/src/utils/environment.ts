@@ -19,12 +19,12 @@ const getRequiredEnvVar = (key: EnvironmentVariableKey): string => {
     return result!;
 };
 
-/** Get stage (dev, beta, prod) from environment variables */
+/** Get stage from environment variables */
 export const getStage = (): string | undefined => {
     return getRequiredEnvVar(EnvironmentVariableKey.STAGE);
 };
 
-/** Get tenant) from environment variables */
+/** Get tenant from environment variables */
 export const getTenant = (): string | undefined => {
     return getRequiredEnvVar(EnvironmentVariableKey.TENANT);
 };
