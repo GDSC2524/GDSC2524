@@ -8,7 +8,7 @@ import {
     IAMStack,
     NextJsStack,
     ReportsTableStack,
-    ContactsTableStack,
+    ContactFormsTableStack,
     ReportsBucketStack,
 } from '../stacks';
 
@@ -42,9 +42,9 @@ export class ApplicationStage extends cdk.Stage {
             }
         );
 
-        const contactsTableStack = new ContactsTableStack(
+        const contactFormsTableStack = new ContactFormsTableStack(
             this,
-            `ReportsTableStack-${props.stage}-${props.tenant}`,
+            `ContactFormsTableStack-${props.stage}-${props.tenant}`,
             {
                 ...baseStackProps,
             }
@@ -54,7 +54,7 @@ export class ApplicationStage extends cdk.Stage {
         const iamStack = new IAMStack(this, `IAMStack-${props.stage}-${props.tenant}`, {
             reportsTableName: reportsTableStack.getTableName(),
             reportsBucketName: s3BucketStack.getBucketName(),
-            contactsTableName: contactsTableStack.getTableName(),
+            contactFormsTableName: contactFormsTableStack.getTableName(),
             ...baseStackProps,
         });
 

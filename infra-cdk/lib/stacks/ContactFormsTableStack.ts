@@ -4,10 +4,10 @@ import { Construct } from 'constructs';
 import { Stage, Tenant } from '../core/enums';
 import { BaseStackProps } from '../core/types';
 
-const BASE_TABLE_NAME = 'ContactsTable';
+const BASE_TABLE_NAME = 'ContactFormsTable';
 
-/** DynamoDB table storing contacts */
-export class ContactsTableStack extends cdk.Stack {
+/** DynamoDB table storing contactForms */
+export class ContactFormsTableStack extends cdk.Stack {
     private stage: Stage;
     private tenant: Tenant;
 
@@ -17,20 +17,20 @@ export class ContactsTableStack extends cdk.Stack {
         this.stage = props.stage;
         this.tenant = props.tenant;
 
-        const contactsTable = new dynamodb.Table(
+        const contactFormsTable = new dynamodb.Table(
             this,
-            `ContactsTable-${props.stage}-${props.tenant}`,
+            `ContactFormsTable-${props.stage}-${props.tenant}`,
             {
                 tableName: this.getTableName(),
-                partitionKey: { name: 'ContactID', type: dynamodb.AttributeType.STRING },
+                partitionKey: { name: 'ContactFormID', type: dynamodb.AttributeType.STRING },
                 removalPolicy: cdk.RemovalPolicy.RETAIN,
             }
         );
 
         /** Filter by status, then within the filtered result, sort by submission date */
-        contactsTable.addGlobalSecondaryIndex({
-            indexName: 'ContactStatusIndex',
-            partitionKey: { name: 'StatusOfContact', type: dynamodb.AttributeType.STRING },
+        contactFormsTable.addGlobalSecondaryIndex({
+            indexName: 'ContactFormStatusIndex',
+            partitionKey: { name: 'StatusOfContactForm', type: dynamodb.AttributeType.STRING },
             sortKey: { name: 'DateTimeOfSubmission', type: dynamodb.AttributeType.STRING },
             projectionType: dynamodb.ProjectionType.ALL,
         });

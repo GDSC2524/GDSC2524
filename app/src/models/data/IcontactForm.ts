@@ -1,27 +1,29 @@
-/** Contact (application model) */
+/** Contactform (application model) */
 export interface IContactForm {
     /** Unique contact ID */
-    contactId: string;
+    contactFormId: string;
     name: string;
     emailAddress: string;
     phoneNumber: string;
     email: boolean;
     sms: boolean;
-    statusOfContact: string;
+    message: string;
+    statusOfContactForm: string;
     dateTimeOfSubmission: string;
     dateTimeLastEdited: string;
 }
 
-/** Contact (DynamoDB model) */
+/** Contactform (DynamoDB model) */
 export interface IDBContactForm {
     /** Unique contact ID */
-    ContactID: { S: string };
+    ContactFormID: { S: string };
     Name: { S: string };
     EmailAddress: { S: string };
     PhoneNumber: { S: string };
     Email: { BOOL: boolean };
     Sms: { BOOL: boolean };
-    StatusOfContact: { S: string };
+    Message: { S: string };
+    StatusOfContactForm: { S: string };
     DateTimeOfSubmission: { S: string };
     DateTimeLastEdited: { S: string };
 }
