@@ -8,6 +8,7 @@ import {
     IAMStack,
     NextJsStack,
     ReportsTableStack,
+    ContactFormsTableStack,
     ReportsBucketStack,
 } from '../stacks';
 
@@ -41,10 +42,19 @@ export class ApplicationStage extends cdk.Stage {
             }
         );
 
+        const contactFormsTableStack = new ContactFormsTableStack(
+            this,
+            `ContactFormsTableStack-${props.stage}-${props.tenant}`,
+            {
+                ...baseStackProps,
+            }
+        );
+
         // IAM policy stack to grant permissions to DynamoDB table and other AWS services
         const iamStack = new IAMStack(this, `IAMStack-${props.stage}-${props.tenant}`, {
             reportsTableName: reportsTableStack.getTableName(),
             reportsBucketName: s3BucketStack.getBucketName(),
+            contactFormsTableName: contactFormsTableStack.getTableName(),
             ...baseStackProps,
         });
 

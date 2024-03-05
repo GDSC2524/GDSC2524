@@ -7,6 +7,8 @@ import { BaseStackProps } from '../core/types';
 export type IAMStackProps = {
     /** DynamoDB report table name to provide permissions to */
     reportsTableName: string;
+    /** DynamoDB contact form table name to provide permissions to */
+    contactFormsTableName: string;
     /** S3 bucket name to provide permissions to */
     reportsBucketName: string;
 } & BaseStackProps;
@@ -31,6 +33,8 @@ export class IAMStack extends cdk.Stack {
                     resources: [
                         `arn:aws:dynamodb:${ENVIRONMENT.region}:${ENVIRONMENT.account}:table/${props.reportsTableName}`,
                         `arn:aws:dynamodb:${ENVIRONMENT.region}:${ENVIRONMENT.account}:table/${props.reportsTableName}/index/*`,
+                        `arn:aws:dynamodb:${ENVIRONMENT.region}:${ENVIRONMENT.account}:table/${props.contactFormsTableName}`,
+                        `arn:aws:dynamodb:${ENVIRONMENT.region}:${ENVIRONMENT.account}:table/${props.contactFormsTableName}/index/*`,
                     ],
                 }),
                 new iam.PolicyStatement({
