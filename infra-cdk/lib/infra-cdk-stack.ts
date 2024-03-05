@@ -16,15 +16,15 @@ const WAVES: { waveId: string; stages: BaseStackConfig[] }[] = [
             },
         ],
     },
-    {
-        waveId: 'prod',
-        stages: [
-            {
-                stage: Stage.PROD,
-                tenant: Tenant.DEFAULT,
-            },
-        ],
-    },
+    // {
+    //     waveId: 'prod',
+    //     stages: [
+    //         {
+    //             stage: Stage.PROD,
+    //             tenant: Tenant.DEFAULT,
+    //         },
+    //     ],
+    // },
 ];
 
 export class InfraCdkStack extends cdk.Stack {
