@@ -1,5 +1,4 @@
 import {
-    BAD_REQUEST,
     HttpMethod,
     IApiErrorResponse,
     IContactForm,
@@ -8,7 +7,6 @@ import {
 } from '@/models';
 import { ContactFormDbClient, isUndefined } from '@/utils';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import * as Yup from 'yup';
 
 export interface ICreateContactFormResponse {
     contactForm: IContactForm;
@@ -41,8 +39,6 @@ export default async function handler(
         const contactFormClient = new ContactFormDbClient();
 
         const params = req.body as IContactForm;
-
-
 
         const contactForm = await contactFormClient.createContactForm(params);
 

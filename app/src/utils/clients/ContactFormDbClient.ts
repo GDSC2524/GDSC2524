@@ -9,6 +9,10 @@ const BASE_TABLE_NAME = 'ContactFormsTable';
 
 /** Client to interact with contactForm DynamoDB */
 export class ContactFormDbClient implements IContactFormClient {
+    listContactForms: any;
+    listContactFormsByStatus(status: string, ascending: boolean | undefined): { contactForms: any; paginationToken: any; } | PromiseLike<{ contactForms: any; paginationToken: any; }> {
+        throw new Error('Method not implemented.');
+    }
     ddbClient: DynamoDB;
 
     constructor() {
@@ -29,6 +33,7 @@ export class ContactFormDbClient implements IContactFormClient {
                 dateTimeOfSubmission,
             }),
         });
+
         return this.getContactForm(contactFormId);
     }
 
@@ -52,6 +57,17 @@ export class ContactFormDbClient implements IContactFormClient {
                 message: NOT_FOUND,
             });
         }
+    }
+
+    async putContactForm(contactForm: IContactForm) {
+        const dateTimeLastEdited = new Date().toISOString();
+
+        await this.ddbClient.putItem({
+            TableName: getTableName(),
+            Item: marshalContactForm({ ...contactForm, dateTimeLastEdited }),
+        });
+
+        return this.getContactForm(contactForm.contactFormId);
     }
 }
 
@@ -97,12 +113,6 @@ function marshalContactForm(contactForm: IContactForm): Record<string, Attribute
 
     return marshalledContactForm as unknown as Record<string, AttributeValue>;
 }
-
-/** Unmarshal ContactForms from DynamoDB */
-function unmarshalContactForms(contactForms?: IDBContactForm[]): IContactForm[] {
-    return contactForms?.map((contactForm) => unmarshalContactForm(contactForm)!) || [];
-}
-
 /** Unmarshal portfolio from DynamoDB */
 function unmarshalContactForm(contactForm?: IDBContactForm): IContactForm | undefined {
     if (isUndefined(contactForm)) {
