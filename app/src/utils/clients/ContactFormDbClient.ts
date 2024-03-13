@@ -6,8 +6,6 @@ import { getStage, getTenant } from '../environment';
 import { NOT_FOUND } from '@/models';
 
 const BASE_TABLE_NAME = 'ContactFormsTable';
-const CATEGORY_INDEX_NAME = 'ContactFormCategoryIndex';
-const STATUS_INDEX_NAME = 'ContactFormStatusIndex';
 
 /** Client to interact with contactForm DynamoDB */
 export class ContactFormDbClient implements IContactFormClient {
@@ -31,7 +29,6 @@ export class ContactFormDbClient implements IContactFormClient {
                 dateTimeOfSubmission,
             }),
         });
-
         return this.getContactForm(contactFormId);
     }
 
@@ -55,51 +52,6 @@ export class ContactFormDbClient implements IContactFormClient {
                 message: NOT_FOUND,
             });
         }
-    }
-
-    async listContactForms(paginationToken?: string | undefined): Promise<{ contactForms: IContactForm[]; paginationToken: string | undefined; }> {
-        const scanData = await this.ddbClient.scan({
-            TableName: getTableName(),
-        });
-
-        return {
-            contactForms: unmarshalContactForms(scanData.Items as unknown as IDBContactForm[]),
-            paginationToken: undefined,
-        };
-    }
-
-    async listContactFormsByStatus(status: string, ascending?: boolean | undefined, paginationToken?: string | undefined): Promise<{ contactForms: IContactForm[]; paginationToken: string | undefined; }> {
-        const queryData = await this.ddbClient.query({
-            TableName: getTableName(),
-            IndexName: STATUS_INDEX_NAME,
-            KeyConditionExpression: '#status = :status',
-            ExpressionAttributeNames: {
-                '#status': 'StatusOfContactForm',
-            },
-            ExpressionAttributeValues: {
-                ':status': {
-                    S: status,
-                },
-            },
-            ScanIndexForward: ascending ?? false,
-        });
-
-        return {
-            contactForms: unmarshalContactForms(queryData.Items as unknown as IDBContactForm[]),
-            paginationToken: undefined,
-        };
-    }
-
-
-    async putContactForm(contactForm: IContactForm) {
-        const dateTimeLastEdited = new Date().toISOString();
-
-        await this.ddbClient.putItem({
-            TableName: getTableName(),
-            Item: marshalContactForm({ ...contactForm, dateTimeLastEdited }),
-        });
-
-        return this.getContactForm(contactForm.contactFormId);
     }
 }
 

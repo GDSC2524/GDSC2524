@@ -22,7 +22,6 @@ export class ReportApiClient implements IReportClient {
             },
         });
         const json: ICreateReportResponse = await response.json();
-
         return json.report;
     }
 

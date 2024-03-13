@@ -34,7 +34,6 @@ export class ReportDbClient implements IReportClient {
                 dateTimeOfSubmission,
             }),
         });
-
         return this.getReport(reportId);
     }
 
@@ -51,7 +50,6 @@ export class ReportDbClient implements IReportClient {
                 TableName: getTableName(),
                 Key: key,
             });
-
             return unmarshalReport(getData.Item as unknown as IDBReport);
         } catch (error) {
             return Promise.reject({

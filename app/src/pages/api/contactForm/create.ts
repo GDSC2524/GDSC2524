@@ -6,7 +6,7 @@ import {
     INTERNAL_SERVER_ERROR,
     METHOD_NOT_ALLOWED,
 } from '@/models';
-import { ContactFormDbClient, isUndefined, VALIDATION_SCHEMA } from '@/utils';
+import { ContactFormDbClient, isUndefined } from '@/utils';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import * as Yup from 'yup';
 
@@ -37,37 +37,12 @@ export default async function handler(
     if (req.method !== HttpMethod.POST) {
         return res.status(405).send({ message: METHOD_NOT_ALLOWED });
     }
-
     try {
         const contactFormClient = new ContactFormDbClient();
 
         const params = req.body as IContactForm;
 
-        // Validate the request body against the validation schema
-        try {
-            await VALIDATION_SCHEMA.partial().validate(params, { abortEarly: false });
 
-            // Check if the 'params.contactFormId' is undefined
-            const isValidRequest = isUndefined(params?.contactFormId);
-
-            if (!isValidRequest) {
-                // Don't store bad data in the database!
-                return res.status(400).json({ message: BAD_REQUEST });
-            }
-        } catch (validationError) {
-            // Check if the validationError is an instance of Yup.ValidationError
-            if (validationError instanceof Yup.ValidationError) {
-                // Validation failed, return error response
-                return res.status(400).json({
-                    message: BAD_REQUEST,
-                    errors: validationError.errors,
-                });
-            } else {
-                return res.status(500).json({
-                    message: INTERNAL_SERVER_ERROR,
-                });
-            }
-        }
 
         const contactForm = await contactFormClient.createContactForm(params);
 
