@@ -58,10 +58,10 @@ export default function FAQ() {
                             </AccordionSummary>
                             <AccordionDetails>
                                 <Typography>
-                                    If you&apos;re unsure about the issue&apos;s location, please provide as
-                                    much information as possible, such as landmarks, nearby
-                                    addresses, or any other helpful details. Additionally, we do
-                                    have a Location Map Picker available to help you precisely
+                                    If you&apos;re unsure about the issue&apos;s location, please
+                                    provide as much information as possible, such as landmarks,
+                                    nearby addresses, or any other helpful details. Additionally, we
+                                    do have a Location Map Picker available to help you precisely
                                     pinpoint the problem area. This will assist our team in
                                     accurately identifying the problem area.
                                 </Typography>
@@ -100,8 +100,9 @@ export default function FAQ() {
                                     If you need to provide additional information after the initial
                                     submission, please contact our support team by using the contact
                                     form on our website. Alternatively, you can access your report
-                                    in the Report List section, where you&apos;ll find an Edit button
-                                    that allows you to update your report with any relevant details.
+                                    in the Report List section, where you&apos;ll find an Edit
+                                    button that allows you to update your report with any relevant
+                                    details.
                                 </Typography>
                             </AccordionDetails>
                         </Accordion>
@@ -139,8 +140,8 @@ export default function FAQ() {
                             <AccordionDetails>
                                 <Typography>
                                     We value your feedback and suggestions for enhancing our
-                                    platform&apos;s functionality and user experience. Please feel free
-                                    to share your thoughts with us through the provided contact
+                                    platform&apos;s functionality and user experience. Please feel
+                                    free to share your thoughts with us through the provided contact
                                     form, email [{ContactInformation.Customer_Support}], or city
                                     helpline {ContactInformation.City_Helpline}.
                                 </Typography>

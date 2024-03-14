@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, { useMemo } from 'react';
 import { S3ApiClient } from '../../utils/clients/S3ApiClient';
 import { IS3Object } from '../../models/data/IS3Object';
 

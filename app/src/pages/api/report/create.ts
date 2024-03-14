@@ -20,7 +20,7 @@ export interface ICreateReportResponse {
  * Allowed methods: POST
  *
  * Parameters:
- *  - body: IReport, new report to pUT
+ *  - body: IReport, new report to PUT
  *
  * Response: IGetReportResponse
  *

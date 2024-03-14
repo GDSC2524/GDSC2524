@@ -268,62 +268,65 @@ export default function ReportCardEdit({
                             </div>
                         ) : null}
                     </Form.Group>
-                <Form.Label className={styles['section-label']}>Report Category</Form.Label>
-                <Form.Group className={styles['form-group']} controlId="EditReport.ReportCategory">
-                    {[
-                        ReportCategories.Illegal_Dumping,
-                        ReportCategories.Clogged_Storm_Drain,
-                        ReportCategories.Potholes,
-                        ReportCategories.Graffiti,
-                        ReportCategories.Street_Light_Outage,
-                        ReportCategories.Sidewalk_Damage,
-                        ReportCategories.Traffic_Signal_Malfunction,
-                        ReportCategories.Abandoned_Vehicles,
-                        ReportCategories.Noise_Complaint,
-                        ReportCategories.Other,
-                    ].map((category) => (
-                        <div key={category}>
-                            <Form.Check
-                                name="reportCategory"
-                                type="radio"
-                                label={category}
-                                value={category}
-                                checked={formik.values.reportCategory === category}
-                                onBlur={formik.handleBlur}
-                                onChange={formik.handleChange}
-                                className={styles['check-control']}
-                            />
-                            {/* Show the additional input field only when 'Other' is selected */}
-                            {category === ReportCategories.Other &&
-                                formik.values.reportCategory === category && (
-                                    <div>
-                                        <Form.Label>Other Category:</Form.Label>
-                                        <Form.Control
-                                            name="otherCategory"
-                                            value={formik.values.otherCategory}
-                                            type="text"
-                                            placeholder="Please enter your other category"
-                                            onBlur={formik.handleBlur}
-                                            onChange={formik.handleChange}
-                                        />
-                                    </div>
-                                )}
-                        </div>
-                    ))}
-                    {formik.touched.reportCategory && formik.errors.reportCategory ? (
-                        <div className="text-danger">
-                            <ErrorOutlineIcon /> {formik.errors.reportCategory}
-                        </div>
-                    ) : formik.touched.reportCategory && !formik.errors.reportCategory ? (
-                        <div style={{ color: 'blue' }}>
-                            <CheckCircleOutlineIcon />
-                        </div>
-                    ) : null}
-                    {formik.touched.otherCategory && formik.errors.otherCategory && (
-                        <p className="text-danger">{formik.errors.otherCategory}</p>
-                    )}
-                </Form.Group>
-            </div>
+                    <Form.Label className={styles['section-label']}>Report Category</Form.Label>
+                    <Form.Group
+                        className={styles['form-group']}
+                        controlId="EditReport.ReportCategory"
+                    >
+                        {[
+                            ReportCategories.Illegal_Dumping,
+                            ReportCategories.Clogged_Storm_Drain,
+                            ReportCategories.Potholes,
+                            ReportCategories.Graffiti,
+                            ReportCategories.Street_Light_Outage,
+                            ReportCategories.Sidewalk_Damage,
+                            ReportCategories.Traffic_Signal_Malfunction,
+                            ReportCategories.Abandoned_Vehicles,
+                            ReportCategories.Noise_Complaint,
+                            ReportCategories.Other,
+                        ].map((category) => (
+                            <div key={category}>
+                                <Form.Check
+                                    name="reportCategory"
+                                    type="radio"
+                                    label={category}
+                                    value={category}
+                                    checked={formik.values.reportCategory === category}
+                                    onBlur={formik.handleBlur}
+                                    onChange={formik.handleChange}
+                                    className={styles['check-control']}
+                                />
+                                {/* Show the additional input field only when 'Other' is selected */}
+                                {category === ReportCategories.Other &&
+                                    formik.values.reportCategory === category && (
+                                        <div>
+                                            <Form.Label>Other Category:</Form.Label>
+                                            <Form.Control
+                                                name="otherCategory"
+                                                value={formik.values.otherCategory}
+                                                type="text"
+                                                placeholder="Please enter your other category"
+                                                onBlur={formik.handleBlur}
+                                                onChange={formik.handleChange}
+                                            />
+                                        </div>
+                                    )}
+                            </div>
+                        ))}
+                        {formik.touched.reportCategory && formik.errors.reportCategory ? (
+                            <div className="text-danger">
+                                <ErrorOutlineIcon /> {formik.errors.reportCategory}
+                            </div>
+                        ) : formik.touched.reportCategory && !formik.errors.reportCategory ? (
+                            <div style={{ color: 'blue' }}>
+                                <CheckCircleOutlineIcon />
+                            </div>
+                        ) : null}
+                        {formik.touched.otherCategory && formik.errors.otherCategory && (
+                            <p className="text-danger">{formik.errors.otherCategory}</p>
+                        )}
+                    </Form.Group>
+                </div>
                 <div className={styles['form-column']}>
                     <Form.Label className={styles['section-label']}>Issue</Form.Label>
                     <Form.Group className={styles['form-group']} controlId="EditReport.Address">

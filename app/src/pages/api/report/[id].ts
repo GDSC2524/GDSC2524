@@ -22,7 +22,7 @@ export interface IGetReportResponse {
  *
  * Parameters:
  *  - id: string, report ID
- *  - body: IReport, new report to pUT
+ *  - body: IReport, new report to PUT
  *
  * Response: IGetReportResponse
  *

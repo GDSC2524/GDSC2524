@@ -18,7 +18,7 @@ export interface ICreateContactFormResponse {
  * Allowed methods: POST
  *
  * Parameters:
- *  - body: IContactForm, new contactForm to pUT
+ *  - body: IContactForm, new contactForm to PUT
  *
  * Response: IGetContactFormResponse
  *

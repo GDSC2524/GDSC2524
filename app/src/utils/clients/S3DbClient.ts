@@ -16,7 +16,7 @@ export class S3DbClient implements IS3Client {
         });
     }
 
-    async getPresignedPost(object: Omit<IS3Object, 'url'>): Promise<{ url: string, fields: any }> {
+    async getPresignedPost(object: Omit<IS3Object, 'url'>): Promise<{ url: string; fields: any }> {
         return await this.s3.createPresignedPost({
             Bucket: process.env.BUCKET_NAME!,
             Fields: {
@@ -24,9 +24,7 @@ export class S3DbClient implements IS3Client {
                 'Content-Type': object.fileType,
             },
             Expires: 60,
-            Conditions: [
-                ['content-length-range', 0, 1 * MEGABYTE],
-            ],
+            Conditions: [['content-length-range', 0, 1 * MEGABYTE]],
         });
     }
 }
