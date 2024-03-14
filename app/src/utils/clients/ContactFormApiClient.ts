@@ -4,7 +4,6 @@ import { IGetContactFormResponse } from '@/pages/api/contactForm/[id]';
 
 const CREATE_CONTACTFORM_ENDPOINT = '/api/contactForm/create';
 const GET_CONTACTFORM_BASE_ENDPOINT = '/api/contactForm';
-const PUT_CONTACTFORM_BASE_ENDPOINT = '/api/contactForm';
 
 /** Client to interact with report API */
 // TODO implement error handling
