@@ -43,14 +43,15 @@ export default async function handler(
 
     try {
         const contactFormClient = new ContactFormDbClient();
+        if (req.method === HttpMethod.GET) {
+            const contactForm = await contactFormClient.getContactForm(id as string);
 
-        const contactForm = await contactFormClient.getContactForm(id as string);
+            if (isUndefined(contactForm)) {
+                return res.status(404).send({ message: NOT_FOUND });
+            }
 
-        if (isUndefined(contactForm)) {
-            return res.status(404).send({ message: NOT_FOUND });
+            return res.status(200).json({ contactForm: contactForm! });
         }
-
-        return res.status(200).json({ contactForm: contactForm! });
     } catch (err) {
         console.error(err);
         return res.status(500).send({ message: INTERNAL_SERVER_ERROR });

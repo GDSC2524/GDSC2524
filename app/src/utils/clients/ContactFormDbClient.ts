@@ -9,15 +9,6 @@ const BASE_TABLE_NAME = 'ContactFormsTable';
 
 /** Client to interact with contactForm DynamoDB */
 export class ContactFormDbClient implements IContactFormClient {
-    listContactForms: any;
-    listContactFormsByStatus(
-        status: string,
-        ascending: boolean | undefined
-    ):
-        | { contactForms: any; paginationToken: any }
-        | PromiseLike<{ contactForms: any; paginationToken: any }> {
-        throw new Error('Method not implemented.');
-    }
     ddbClient: DynamoDB;
 
     constructor() {
@@ -25,7 +16,10 @@ export class ContactFormDbClient implements IContactFormClient {
     }
 
     async createContactForm(
-        contactForm: Omit<IContactForm, 'contactFormId'>
+        contactForm: Omit<
+            IContactForm,
+            'contactFormId' | 'statusOfContactForm' | 'dateTimeOfSubmission'
+        >
     ): Promise<IContactForm | undefined> {
         const contactFormId = getUuid();
         const statusOfContactForm = 'Submitted';
