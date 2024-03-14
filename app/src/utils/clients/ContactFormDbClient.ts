@@ -10,7 +10,12 @@ const BASE_TABLE_NAME = 'ContactFormsTable';
 /** Client to interact with contactForm DynamoDB */
 export class ContactFormDbClient implements IContactFormClient {
     listContactForms: any;
-    listContactFormsByStatus(status: string, ascending: boolean | undefined): { contactForms: any; paginationToken: any; } | PromiseLike<{ contactForms: any; paginationToken: any; }> {
+    listContactFormsByStatus(
+        status: string,
+        ascending: boolean | undefined
+    ):
+        | { contactForms: any; paginationToken: any }
+        | PromiseLike<{ contactForms: any; paginationToken: any }> {
         throw new Error('Method not implemented.');
     }
     ddbClient: DynamoDB;
@@ -19,7 +24,9 @@ export class ContactFormDbClient implements IContactFormClient {
         this.ddbClient = getDynamoDbClient();
     }
 
-    async createContactForm(contactForm: Omit<IContactForm, 'contactFormId'>): Promise<IContactForm | undefined> {
+    async createContactForm(
+        contactForm: Omit<IContactForm, 'contactFormId'>
+    ): Promise<IContactForm | undefined> {
         const contactFormId = getUuid();
         const statusOfContactForm = 'Submitted';
         const dateTimeOfSubmission = new Date().toISOString();
@@ -57,17 +64,6 @@ export class ContactFormDbClient implements IContactFormClient {
                 message: NOT_FOUND,
             });
         }
-    }
-
-    async putContactForm(contactForm: IContactForm) {
-        const dateTimeLastEdited = new Date().toISOString();
-
-        await this.ddbClient.putItem({
-            TableName: getTableName(),
-            Item: marshalContactForm({ ...contactForm, dateTimeLastEdited }),
-        });
-
-        return this.getContactForm(contactForm.contactFormId);
     }
 }
 
