@@ -1,9 +1,9 @@
 import { IDBContactForm, IContactFormClient, IContactForm } from '@/models';
 import { AttributeValue, DynamoDB } from '@aws-sdk/client-dynamodb';
 import { getDynamoDbClient } from '../api';
-import { getUuid, isUndefined } from '../common';
+import { getUuid } from '../common';
 import { getStage, getTenant } from '../environment';
-import { NOT_FOUND } from '@/models';
+import { CREATED_SUCCESSFULLY } from '@/models';
 
 const BASE_TABLE_NAME = 'ContactFormsTable';
 
@@ -35,29 +35,10 @@ export class ContactFormDbClient implements IContactFormClient {
             }),
         });
 
-        return this.getContactForm(contactFormId);
-    }
-
-    async getContactForm(contactFormId: string) {
-        const key: Pick<IDBContactForm, 'ContactFormID'> = {
-            ContactFormID: {
-                S: contactFormId,
-            },
-        };
-
-        try {
-            const getData = await this.ddbClient.getItem({
-                TableName: getTableName(),
-                Key: key,
-            });
-
-            return unmarshalContactForm(getData.Item as unknown as IDBContactForm);
-        } catch (error) {
-            return Promise.reject({
-                status: 404,
-                message: NOT_FOUND,
-            });
-        }
+        return Promise.reject({
+            status: 200,
+            message: CREATED_SUCCESSFULLY,
+        });
     }
 }
 
@@ -102,23 +83,4 @@ function marshalContactForm(contactForm: IContactForm): Record<string, Attribute
     };
 
     return marshalledContactForm as unknown as Record<string, AttributeValue>;
-}
-/** Unmarshal portfolio from DynamoDB */
-function unmarshalContactForm(contactForm?: IDBContactForm): IContactForm | undefined {
-    if (isUndefined(contactForm)) {
-        return;
-    }
-
-    return {
-        contactFormId: contactForm?.ContactFormID?.S!,
-        name: contactForm?.Name?.S!,
-        emailAddress: contactForm?.EmailAddress?.S!,
-        phoneNumber: contactForm?.PhoneNumber?.S!,
-        email: contactForm?.Email?.BOOL!,
-        sms: contactForm?.Sms?.BOOL!,
-        message: contactForm?.Message?.S!,
-        statusOfContactForm: contactForm?.StatusOfContactForm?.S!,
-        dateTimeOfSubmission: contactForm?.DateTimeOfSubmission?.S!,
-        dateTimeLastEdited: contactForm?.DateTimeLastEdited?.S!,
-    };
 }
