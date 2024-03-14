@@ -20,7 +20,7 @@ export class ContactFormDbClient implements IContactFormClient {
             IContactForm,
             'contactFormId' | 'statusOfContactForm' | 'dateTimeOfSubmission'
         >
-    ): Promise<IContactForm | undefined> {
+    ) {
         const contactFormId = getUuid();
         const statusOfContactForm = 'Submitted';
         const dateTimeOfSubmission = new Date().toISOString();
@@ -38,7 +38,7 @@ export class ContactFormDbClient implements IContactFormClient {
         return this.getContactForm(contactFormId);
     }
 
-    async getContactForm(contactFormId: string): Promise<IContactForm | undefined> {
+    async getContactForm(contactFormId: string) {
         const key: Pick<IDBContactForm, 'ContactFormID'> = {
             ContactFormID: {
                 S: contactFormId,
