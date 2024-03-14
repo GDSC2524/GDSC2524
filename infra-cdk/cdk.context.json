@@ -1,10 +1,10 @@
 {
-  "hosted-zone:account=377019892688:domainName=cl311.org:region=us-east-1": {
-    "Id": "/hostedzone/Z04834822Y0EHHZ0HP71H",
-    "Name": "cl311.org."
-  },
-  "hosted-zone:account=218673847540:domainName=gdsc2524.org:region=us-east-1": {
-    "Id": "/hostedzone/Z0541873J7DH7COCPVE9",
-    "Name": "gdsc2524.org."
-  }
+    "hosted-zone:account=377019892688:domainName=cl311.org:region=us-east-1": {
+        "Id": "/hostedzone/Z04834822Y0EHHZ0HP71H",
+        "Name": "cl311.org."
+    },
+    "hosted-zone:account=218673847540:domainName=gdsc2524.org:region=us-east-1": {
+        "Id": "/hostedzone/Z0541873J7DH7COCPVE9",
+        "Name": "gdsc2524.org."
+    }
 }

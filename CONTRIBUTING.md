@@ -18,10 +18,10 @@ If you're interested in contributing to GDSC2524, please follow these steps:
 
 Before submitting a PR, please ensure that your code adheres to the following guidelines:
 
-- Follow the coding style used throughout the project.
-- Write clear, concise, and meaningful commit messages.
-- Ensure that your changes are well-tested and don't break existing functionality.
-- If you're introducing new features or significant changes, consider adding documentation.
+-   Follow the coding style used throughout the project.
+-   Write clear, concise, and meaningful commit messages.
+-   Ensure that your changes are well-tested and don't break existing functionality.
+-   If you're introducing new features or significant changes, consider adding documentation.
 
 ## Reporting Bugs
 
@@ -36,4 +36,3 @@ If you have any questions or need further assistance, feel free to reach out to 
 By contributing to GDSC2524, you agree that your contributions will be licensed under the Apache License. See the [LICENSE](https://github.com/GDSC2524/GDSC2524/blob/main/LICENSE) file for more details.
 
 Thank you for your interest in contributing to GDSC2524! We appreciate your help in making this project better for everyone.
-
