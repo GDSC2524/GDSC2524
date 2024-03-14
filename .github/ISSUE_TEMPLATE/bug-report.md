@@ -4,10 +4,10 @@ about: Create a report to help us improve
 title: ''
 labels: ''
 assignees: ''
-
 ---
 
 ---
+
 ## Bug Report
 
 ### Description
@@ -33,16 +33,16 @@ If applicable, include screenshots to illustrate the issue.
 
 #### Desktop
 
-- **OS:** [e.g., macOS, Windows 10]
-- **Browser:** [e.g., Chrome, Firefox, Edge]
-- **Version:** [e.g., 96.0.4664.45]
+-   **OS:** [e.g., macOS, Windows 10]
+-   **Browser:** [e.g., Chrome, Firefox, Edge]
+-   **Version:** [e.g., 96.0.4664.45]
 
 #### Smartphone
 
-- **Device:** [e.g., iPhone 13, Samsung Galaxy S21]
-- **OS:** [e.g., iOS 15.3, Android 12]
-- **Browser:** [e.g., Safari, Chrome]
-- **Version:** [e.g., 98.0.4758.101]
+-   **Device:** [e.g., iPhone 13, Samsung Galaxy S21]
+-   **OS:** [e.g., iOS 15.3, Android 12]
+-   **Browser:** [e.g., Safari, Chrome]
+-   **Version:** [e.g., 98.0.4758.101]
 
 ### Additional Context
 

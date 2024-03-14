@@ -2,7 +2,7 @@
     "files.exclude": {
         "**/node_modules": true,
         "**/*.d.ts": true,
-        "**/*.js": true,
+        "**/*.js": true
     },
     "[typescriptreact]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"

@@ -4,9 +4,7 @@ import {
     IReport,
     INTERNAL_SERVER_ERROR,
     METHOD_NOT_ALLOWED,
-    BAD_REQUEST,
 } from '@/models';
-import { isUndefined } from '@/utils';
 import { ReportDbClient } from '@/utils/clients/ReportDbClient';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
@@ -45,7 +43,7 @@ export default async function handler(
 
     try {
         const reportClient = new ReportDbClient();
-      
+
         if (status) {
             const { reports, paginationToken } = await reportClient.listReportsByStatus(
                 status,

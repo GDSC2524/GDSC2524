@@ -13,7 +13,7 @@
 }
 
 .map-row {
-    height: 400px; 
+    height: 400px;
     width: 100%; /* Take up the full width of the parent */
     padding: 10px;
     box-sizing: border-box; /* Ensure padding doesn't increase width */
