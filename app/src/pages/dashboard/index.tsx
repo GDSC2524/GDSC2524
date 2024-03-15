@@ -2,7 +2,7 @@ import { PageTitle, GroupedBox } from '@/styles/StyleDashboard';
 import Head from 'next/head';
 import DataAnalytics from '@/components/dashboard/DataAnalytics';
 import FAQ from '@/components/dashboard/FAQ';
-import ContactForm from '@/components/contactForm/ContactForm';
+import ContactForm from '@/components/dashboard/ContactForm';
 import ContactInfo from '@/components/dashboard/ContactInfo';
 
 // Dashboard page

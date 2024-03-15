@@ -37,7 +37,7 @@ export default function ContactForm() {
             dateTimeLastEdited: '',
         };
         const createdContactForm = await createContactForm(newContact);
-        // submit logic
+        console.log(123123123213);
     };
 
     return (
