@@ -8,4 +8,9 @@ export interface IContactFormClient {
     ): Promise<IContactForm | undefined>;
     /** Get contactForm */
     getContactForm(contactFormId: string): Promise<IContactForm | undefined>;
+
+    getlistContactForms(paginationToken?: string): Promise<{
+        contactForms: IContactForm[];
+        paginationToken: string | undefined;
+    }>;
 }

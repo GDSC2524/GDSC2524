@@ -59,11 +59,23 @@ export class ContactFormDbClient implements IContactFormClient {
             });
         }
     }
+
+    async getlistContactForms(paginationToken?: string) {
+        const scanData = await this.ddbClient.scan({ TableName: getTableName() });
+        return {
+            contactForms: unmarshalContactForms(scanData.Items as unknown as IDBContactForm[]),
+            paginationToken: undefined,
+        };
+    }
 }
 
 /** Get DynamoDB table name */
 function getTableName(): string {
     return `${BASE_TABLE_NAME}-${getStage()}-${getTenant()}`;
+}
+
+function unmarshalContactForms(contactForms?: IDBContactForm[]): IContactForm[] {
+    return contactForms?.map((contactForm) => unmarshalContactForm(contactForm)!) || [];
 }
 
 /** Unmarshal contactForms to DynamoDB */
@@ -103,6 +115,7 @@ function marshalContactForm(contactForm: IContactForm): Record<string, Attribute
 
     return marshalledContactForm as unknown as Record<string, AttributeValue>;
 }
+
 /** Unmarshal portfolio from DynamoDB */
 function unmarshalContactForm(contactForm?: IDBContactForm): IContactForm | undefined {
     if (isUndefined(contactForm)) {
