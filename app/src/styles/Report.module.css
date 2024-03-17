@@ -13,7 +13,7 @@
 }
 
 .map-row {
-    height: 400px; 
+    height: 400px;
     width: 100%; /* Take up the full width of the parent */
     padding: 10px;
     box-sizing: border-box; /* Ensure padding doesn't increase width */
@@ -126,4 +126,34 @@
     background: linear-gradient(45deg, #ecf2f8, #1e4e79);
     border: 2px solid #163255;
     color: #163255;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.animate-fade {
+    animation: fade 1s ease-in-out;
+}
+
+.form-data {
+    background-color: #f5f5f5;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
