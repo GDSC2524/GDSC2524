@@ -6,4 +6,6 @@ export interface IContactFormClient {
     createContactForm(
         contactForm: Omit<IContactForm, 'contactFormId'>
     ): Promise<IContactForm | undefined>;
+    /** Get contactForm */
+    getContactForm(contactFormId: string): Promise<IContactForm | undefined>;
 }
