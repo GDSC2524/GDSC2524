@@ -35,10 +35,7 @@ export class ContactFormDbClient implements IContactFormClient {
             }),
         });
 
-        return Promise.reject({
-            status: 200,
-            message: CREATED_SUCCESSFULLY,
-        });
+        return this.getContactForm(contactFormId);
     }
 
     async getContactForm(contactFormId: string) {
