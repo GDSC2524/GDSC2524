@@ -1,12 +1,14 @@
 import {
+    BAD_REQUEST,
     HttpMethod,
     IApiErrorResponse,
     IContactForm,
     INTERNAL_SERVER_ERROR,
     METHOD_NOT_ALLOWED,
 } from '@/models';
-import { ContactFormDbClient, isUndefined } from '@/utils';
+import { ContactFormDbClient, isUndefined, VALIDATION_SCHEMA } from '@/utils';
 import type { NextApiRequest, NextApiResponse } from 'next';
+import * as Yup from 'yup';
 
 export interface ICreateContactFormResponse {
     contactForm: IContactForm;
@@ -39,6 +41,26 @@ export default async function handler(
         const contactFormClient = new ContactFormDbClient();
 
         const params = req.body as IContactForm;
+
+        try {
+            await VALIDATION_SCHEMA.partial().validate(params, { abortEarly: false });
+            const isValidRequest = isUndefined(params?.contactFormId);
+            if (!isValidRequest) {
+                return res.status(400).json({ message: BAD_REQUEST });
+            }
+        } catch (validationError) {
+            if (validationError instanceof Yup.ValidationError) {
+                // Validation failed, return error response
+                return res.status(400).json({
+                    message: BAD_REQUEST,
+                    errors: validationError.errors,
+                });
+            } else {
+                return res.status(500).json({
+                    message: INTERNAL_SERVER_ERROR,
+                });
+            }
+        }
 
         const contactForm = await contactFormClient.createContactForm(params);
 

@@ -66,6 +66,7 @@ export const VALIDATION_SCHEMA = Yup.object({
         .matches(addressRegExp, 'Invalid Address!')
         .required('Address is Required!'),
     issueDescription: Yup.string().max(1000, 'Too Long!').optional(),
+    message: Yup.string().max(5000, 'Too Long!').optional(),
     email: Yup.boolean(),
     sms: Yup.boolean(),
 });
