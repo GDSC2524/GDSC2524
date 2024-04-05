@@ -4,3 +4,4 @@ export * from './ReportCategories';
 export * from './StatusOfReport';
 export * from './ReportFields';
 export * from './ContactInformation';
+export * from './Email_data';
